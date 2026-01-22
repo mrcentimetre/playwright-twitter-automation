@@ -1,0 +1,35 @@
+# Environment variables
+.env
+*.env
+!.env.example
+
+# Dependencies
+node_modules/
+__pycache__/
+*.pyc
+.Python
+
+# Sensitive authentication files (IMPORTANT!)
+twitter_cookies.json
+twitter-auth.json
+twitter.json
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Backup files
+backup/
+*.backup
+*.bak
+
+# Logs
+*.log
+npm-debug.log*

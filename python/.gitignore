@@ -1,0 +1,5 @@
+# Ignore sensitive files
+twitter_cookies.json
+twitter-auth.json
+twitter.json
+.env

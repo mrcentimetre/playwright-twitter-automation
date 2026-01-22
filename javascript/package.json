@@ -1,0 +1,25 @@
+{
+  "name": "twitter-automation-js",
+  "version": "1.0.0",
+  "description": "Automate Twitter posts using Playwright (JavaScript)",
+  "main": "tweet.js",
+  "scripts": {
+    "login": "node tweet.js login",
+    "post": "node tweet.js post",
+    "cookies": "node tweet.js cookies"
+  },
+  "keywords": [
+    "twitter",
+    "automation",
+    "playwright",
+    "tweet"
+  ],
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "dotenv": "^16.0.0",
+    "playwright": "^1.40.0",
+    "playwright-extra": "^4.3.6",
+    "puppeteer-extra-plugin-stealth": "^2.11.2"
+  }
+}
