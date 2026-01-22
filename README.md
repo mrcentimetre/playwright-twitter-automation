@@ -1,6 +1,6 @@
 # Twitter Automation with Playwright
 
-🤖 Automate Twitter posts using Playwright in both **Python** and **JavaScript/Node.js**.
+🤖 Automate Twitter posts **AND** natural browsing behavior using Playwright in both **Python** and **JavaScript/Node.js**.
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
@@ -9,6 +9,14 @@
 Due to **Twitter's strict bot detection and anti-automation measures**, only the **cookie export method works reliably**. Manual login methods are often blocked by Twitter's security systems.
 
 **✅ Recommended:** Use the cookie export method described below.
+
+## ✨ Features
+
+- **Tweet Automation** - Post tweets programmatically
+- **Natural Browsing Bot** 🤖 - Simulate human behavior to avoid bot detection
+- **Random Scheduling** - Browse at random times throughout the day
+- **Anti-Detection** - Human-like scrolling, reading pauses, and realistic patterns
+- **Cookie-Based Authentication** - Reliable and bypasses bot detection
 
 ## 🚀 Quick Start
 
@@ -19,7 +27,7 @@ This repository contains two separate implementations:
 - **[Python Version](./python/)** - For Python developers
 - **[JavaScript Version](./javascript/)** - For Node.js developers
 
-Both versions have the same functionality and use the same method.
+Both versions have the same functionality and use the same cookie method.
 
 ## 📋 How It Works
 
@@ -29,7 +37,7 @@ This method bypasses Twitter's bot detection by using your real browser cookies:
 
 1. **Export your Twitter cookies** using a browser extension
 2. **Save them** as `twitter_cookies.json`
-3. **Run the script** to post tweets automatically
+3. **Run the script** to post tweets or browse naturally
 
 ### Why Cookie Method?
 
@@ -53,6 +61,11 @@ playwright install chromium
 python3 tweet.py cookies "Your message here"
 ```
 
+**Browse naturally:**
+```bash
+python3 browse_naturally.py browse
+```
+
 [📖 Full Python Documentation](./python/README.md)
 
 ### JavaScript/Node.js
@@ -66,6 +79,11 @@ npx playwright install chromium
 **Post a tweet:**
 ```bash
 node tweet.js cookies "Your message here"
+```
+
+**Browse naturally:**
+```bash
+npm run browse
 ```
 
 [📖 Full JavaScript Documentation](./javascript/README.md)
@@ -90,16 +108,133 @@ node tweet.js cookies "Your message here"
 
 ### 2. Run the Script
 
-**Python:**
+**Posting Tweets:**
+
+Python:
 ```bash
 cd python
 python3 tweet.py cookies "Hello from Python automation!"
 ```
 
-**JavaScript:**
+JavaScript:
 ```bash
 cd javascript
 node tweet.js cookies "Hello from Node.js automation!"
+```
+
+**Natural Browsing:**
+
+Python:
+```bash
+cd python
+python3 browse_naturally.py browse
+```
+
+JavaScript:
+```bash
+cd javascript
+npm run browse
+```
+
+## 🎭 Natural Browsing Bot (NEW!)
+
+Make your account appear more human-like to avoid X/Twitter bot detection by browsing naturally with realistic patterns.
+
+### How It Works
+
+The bot randomly performs these actions to mimic human behavior:
+
+- **Scroll** 📜 - Random scrolling with occasional pauses to "read"
+- **Read** 📖 - Stops and pauses for 5-15 seconds
+- **Explore** 🔍 - Navigates to Explore page and browses
+- **Trending** 🔥 - Views trending topics
+- **Profile** 👤 - Checks profile section
+
+### Usage
+
+**Python:**
+```bash
+cd python
+# Export your Twitter cookies using Cookie-Editor extension
+# Save as twitter_cookies.json
+
+# Browse once now
+python browse_naturally.py browse
+
+# Schedule random browsing sessions (3-5 times per day)
+python browse_naturally.py schedule
+```
+
+**JavaScript:**
+```bash
+cd javascript
+# Export your Twitter cookies using Cookie-Editor extension
+# Save as twitter_cookies.json
+
+# Browse once now
+node browse_naturally.js browse
+# or: npm run browse
+
+# Schedule random browsing sessions (3-5 times per day)
+node browse_naturally.js schedule
+# or: npm run schedule
+```
+
+### Features
+
+- ✅ Random session durations (2-10 minutes)
+- ✅ Random delays between actions
+- ✅ Realistic scrolling patterns
+- ✅ Multiple browsing actions (scroll, read, explore, trending)
+- ✅ Anti-detection techniques
+- ✅ Scheduled sessions at random times (8 AM - 11 PM)
+- ✅ Uses cookie authentication (reliable & secure)
+
+### Sample Output
+
+```
+============================================================
+🤖 Starting natural browsing session
+📅 Time: 2026-01-22 14:23:15
+⏱️  Duration: 6 minutes 42 seconds
+============================================================
+
+🌐 Opening Twitter...
+
+[1] ⏱️  402s remaining - Action: scroll
+  📜 Scrolling 3 times...
+  👀 Reading a tweet...
+
+[2] ⏱️  387s remaining - Action: trending
+  🔥 Viewing trending topics...
+
+============================================================
+✅ Browsing session completed!
+⏱️  Total time: 6 minutes 42 seconds
+🎯 Actions performed: 18
+============================================================
+```
+
+## 📁 Project Structure
+
+```
+.
+├── python/
+│   ├── tweet.py              # Python automation script
+│   ├── browse_naturally.py   # Natural browsing bot
+│   ├── requirements.txt      # Python dependencies
+│   ├── README.md            # Python-specific docs
+│   └── twitter_cookies.json # Exported cookies (you create this)
+│
+├── javascript/
+│   ├── tweet.js             # JavaScript automation script
+│   ├── browse_naturally.js  # Natural browsing bot
+│   ├── package.json         # Node.js dependencies
+│   ├── README.md           # JavaScript-specific docs
+│   └── twitter_cookies.json # Exported cookies (you create this)
+│
+├── README.md               # This file
+└── .gitignore             # Ignored files
 ```
 
 ## 🔒 Security
@@ -111,41 +246,34 @@ node tweet.js cookies "Hello from Node.js automation!"
 - **Regenerate cookies** if you suspect they've been compromised
 - Files with sensitive data are already in `.gitignore`
 
-## 📁 Project Structure
-
-```
-.
-├── python/
-│   ├── tweet.py              # Python automation script
-│   ├── requirements.txt      # Python dependencies
-│   ├── README.md            # Python-specific docs
-│   └── .env.example         # Environment template
-│
-├── javascript/
-│   ├── tweet.js             # JavaScript automation script
-│   ├── package.json         # Node.js dependencies
-│   ├── README.md           # JavaScript-specific docs
-│   └── .env.example        # Environment template
-│
-├── README.md               # This file
-└── .gitignore             # Ignored files
-```
-
 ## ❓ Troubleshooting
 
 ### "Could not log you in now" Error
 - **Cause:** Twitter's bot detection blocking automated login
 - **Solution:** Use the cookie export method instead (recommended)
 
-### Tweet Not Posting
+### Tweet Not Posting / Browsing Not Working
 - Verify cookies are fresh (export new ones if needed)
 - Ensure you're logged into Twitter in your browser
 - Check that `twitter_cookies.json` is in the correct directory
+- Make sure the cookie file is valid JSON format
+
+### "twitter_cookies.json not found"
+- Export cookies using Cookie-Editor extension as described above
+- Save the file in the correct directory (python/ or javascript/)
+- File name must be exactly `twitter_cookies.json`
 
 ### Browser Not Opening
 - Make sure Playwright browsers are installed:
   - Python: `playwright install chromium`
   - JavaScript: `npx playwright install chromium`
+
+### Rate Limiting / Account Locked
+- Reduce browsing frequency
+- Increase delays between actions
+- Use `browse` command manually instead of `schedule`
+- Mix with real Twitter usage on your phone/browser
+- Don't run too many sessions per day (3-5 is recommended)
 
 ## 🤝 Contributing
 

@@ -6,7 +6,9 @@
   "scripts": {
     "login": "node tweet.js login",
     "post": "node tweet.js post",
-    "cookies": "node tweet.js cookies"
+    "cookies": "node tweet.js cookies",
+    "browse": "node browse_naturally.js browse",
+    "schedule": "node browse_naturally.js schedule"
   },
   "keywords": [
     "twitter",
@@ -18,6 +20,7 @@
   "license": "MIT",
   "dependencies": {
     "dotenv": "^16.0.0",
+    "node-schedule": "^2.1.1",
     "playwright": "^1.40.0",
     "playwright-extra": "^4.3.6",
     "puppeteer-extra-plugin-stealth": "^2.11.2"
